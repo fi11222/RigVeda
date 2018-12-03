@@ -1,5 +1,23 @@
-COPY "TB_RV"("N_MANDALA","N_SOOTKA","N_VERSE","TX_VERSE") 
-FROM '/home/fi11222/disk-partage/Dev/Rig_Veda/RV.csv' DELIMITER ';' CSV HEADER;
+-- Table: public."TB_RV"
+
+-- DROP TABLE public."TB_RV";
+
+CREATE TABLE public."TB_RV"
+(
+  "N_MANDALA" integer,
+  "N_SOOTKA" integer,
+  "N_SLOKA" integer,
+  "TX_SLOKA" text,
+  "ID_SLOKA" integer
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public."TB_RV"
+  OWNER TO postgres;
+
+COPY "TB_RV"("ID_SLOKA","N_MANDALA","N_SOOTKA","N_SLOKA","TX_SLOKA")
+FROM '/home/fi11222/disk-partage/Dev/Rig_Veda2/RV.csv' DELIMITER ';' CSV HEADER;
 
 ALTER TABLE "TB_RV" ADD PRIMARY KEY ("ID_SLOKA");
 
