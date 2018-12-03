@@ -14,6 +14,7 @@ if __name__ == "__main__":
     print('| rv.py                                                      |')
     print('|                                                            |')
     print('| v. 1.0 - 19/03/2018                                        |')
+    print('| v. 1.1 - 19/03/2018 Added ID_SLOKA                         |')
     print('+------------------------------------------------------------+')
 
     with open('./RV.txt', 'r') as l_file:
@@ -22,13 +23,14 @@ if __name__ == "__main__":
     print('size : {0}'.format(len(l_content)))
 
     with open('./RV.csv', 'w', encoding='utf-8') as l_csv:
-        l_csv.write('N_MANDALA;N_SOOTKA;N_VERSE;TX_VERSE\n')
+        l_csv.write('ID_SLOKA;N_MANDALA;N_SOOTKA;N_VERSE;TX_VERSE\n')
 
         l_mandala = 0
         l_mandala_prev = 0
         l_sootka = 0
         l_sootka_calc = 0
         l_verse_calc = 0
+        l_id_sloka = 0
         for l_line in l_content.split('\n'):
             l_found_verse = re.search('([^॥]+)॥(\d+)', l_line)
             if l_found_verse:
@@ -45,7 +47,9 @@ if __name__ == "__main__":
                     sys.exit(0)
 
                 print('{0} : {1}'.format(l_number, l_verse))
-                l_csv.write('{0};{1};{2};"{3}"\n'.format(l_mandala, l_sootka, l_number, l_verse))
+                l_csv.write('{0};{1};{2};{3};"{4}"\n'.format(
+                    l_id_sloka, l_mandala, l_sootka, l_number, l_verse))
+                l_id_sloka += 1
             else:
                 l_found_sootka = re.search('\((\d+).(\d+)\)', l_line)
                 if l_found_sootka:
