@@ -109,7 +109,7 @@ def iast_to_deva(p_string):
 # ---------------------------------------------------- Main section ----------------------------------------------------
 if __name__ == "__main__":
     print('+------------------------------------------------------------+', file=sys.stderr)
-    print('| Output of Rig Veda queries                                 |', file=sys.stderr)
+    print('| Load Rig Veda Padapatha into DB                            |', file=sys.stderr)
     print('|                                                            |', file=sys.stderr)
     print('| rv_load_padapatha.py                                       |', file=sys.stderr)
     print('|                                                            |', file=sys.stderr)
