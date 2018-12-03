@@ -1,7 +1,7 @@
 COPY "TB_RV"("N_MANDALA","N_SOOTKA","N_VERSE","TX_VERSE") 
 FROM '/home/fi11222/disk-partage/Dev/Rig_Veda/RV.csv' DELIMITER ';' CSV HEADER;
 
-ALTER TABLE "TB_RV" ADD PRIMARY KEY ("N_MANDALA", "N_SOOTKA", "N_VERSE");
+ALTER TABLE "TB_RV" ADD PRIMARY KEY ("ID_SLOKA");
 
 select * from "TB_RV" where "TX_VERSE" like '%सत्यसत्वन्%'
 
