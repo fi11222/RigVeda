@@ -44,6 +44,11 @@ from "TB_WORDS" "W" join "TB_PADAPATHA" "P" on "P"."ID_SLOKA" = "W"."ID_SLOKA"
 where "W"."S_WORD" like 'saty%' or "W"."S_WORD" like '%-saty%'
 order by "P"."N_MANDALA", "P"."N_SOOTKA", "P"."N_SLOKA"
 
+select "A".*, "B".*
+from "TB_PADAPATHA" "A" join "TB_PADAPATHA" "B" on "A"."TX_PADAPATHA" = "B"."TX_PADAPATHA"
+where not "A"."ID_SLOKA" = "B"."ID_SLOKA"
+order by "A"."N_MANDALA", "A"."ID_SLOKA"
+
 -- Index: public."index_ID_SLOKA"
 
 -- DROP INDEX public."index_ID_SLOKA";
