@@ -33,6 +33,11 @@ from "TB_WORDS" "W" join "TB_PADAPATHA" "P" on "P"."ID_SLOKA" = "W"."ID_SLOKA"
 where "W"."S_WORD" like 'ṛt%' or "W"."S_WORD" like 'anṛt%'
 order by "P"."N_MANDALA", "P"."N_SOOTKA", "P"."N_SLOKA"
 
+select "W"."S_WORD", "P".*
+from "TB_WORDS" "W" join "TB_PADAPATHA" "P" on "P"."ID_SLOKA" = "W"."ID_SLOKA"
+where "W"."S_WORD" like 'brahm%'
+order by "W"."S_WORD", "P"."N_MANDALA", "P"."N_SOOTKA", "P"."N_SLOKA"
+
 select *
 from "TB_PADAPATHA"
 -- where "N_MANDALA"=1 and "N_SOOTKA"=63 and "N_SLOKA"=3
