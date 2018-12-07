@@ -112,3 +112,9 @@ WITH (
 );
 ALTER TABLE public."TB_WORDS"
   OWNER TO postgres;
+
+
+
+
+
+
