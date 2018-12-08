@@ -1,21 +1,3 @@
--- Table: public."TB_RV"
-
--- DROP TABLE public."TB_RV";
-
-CREATE TABLE public."TB_RV"
-(
-  "N_MANDALA" integer,
-  "N_SOOTKA" integer,
-  "N_SLOKA" integer,
-  "TX_SLOKA" text,
-  "ID_SLOKA" integer
-)
-WITH (
-  OIDS=FALSE
-);
-ALTER TABLE public."TB_RV"
-  OWNER TO postgres;
-
 COPY "TB_RV"("ID_SLOKA","N_MANDALA","N_SOOTKA","N_SLOKA","TX_SLOKA")
 FROM '/home/fi11222/disk-partage/Dev/Rig_Veda2/RV.csv' DELIMITER ';' CSV HEADER;
 
@@ -77,41 +59,7 @@ order by "P"."N_MANDALA", "P"."N_SOOTKA", "P"."N_SLOKA"
 
 select * from "TB_PADAPATHA" where "N_MANDALA" = 8 and "N_SOOTKA" = 100
 
-DROP TABLE if exists public."TB_PADAPATHA";
 
-CREATE TABLE public."TB_PADAPATHA"
-(
-  "ID_SLOKA" integer NOT NULL,
-  "N_MANDALA" integer,
-  "N_SOOTKA" integer,
-  "N_SLOKA" integer,
-  "TX_PADAPATHA" text,
-  "TX_PADAPATHA_DEVA" text,
-  CONSTRAINT "TB_PADAPATHA_pkey" PRIMARY KEY ("ID_SLOKA")
-)
-WITH (
-  OIDS=FALSE
-);
-ALTER TABLE public."TB_PADAPATHA"
-  OWNER TO postgres;
-
-CREATE UNIQUE INDEX "Numbers_Idx" ON "TB_PADAPATHA"("N_MANDALA", "N_SOOTKA", "N_SLOKA");
-
-DROP TABLE if exists public."TB_WORDS";
-
-CREATE TABLE public."TB_WORDS"
-(
-  "ID_WORD" integer NOT NULL,
-  "ID_SLOKA" integer  NOT NULL,
-  "S_WORD" character varying(30),
-  "S_WORD_DEVA" character varying(30),
-  CONSTRAINT "TB_WORDS_pkey" PRIMARY KEY ("ID_WORD")
-)
-WITH (
-  OIDS=FALSE
-);
-ALTER TABLE public."TB_WORDS"
-  OWNER TO postgres;
 
 
 
